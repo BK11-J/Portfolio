@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bhumi Kadam | Web Developer</title>
+  <style>
+    :root {
+      --primary: #ffb6c1;
+      --secondary: #ffe4e1;
+      --text: #333;
+      --bg: #fff0f5;
+      --accent: #ff69b4;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #ffe6f0, #fce3ec);
+      color: var(--text);
+      padding: 30px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-style: italic;
+      color: #555;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(255, 182, 193, 0.4);
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: var(--accent);
+      margin-bottom: 15px;
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .skills-grid div {
+      background: var(--secondary);
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 10px rgba(255, 192, 203, 0.3);
+    }
+
+    .portfolio-btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: var(--accent);
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+      transition: background 0.3s ease;
+    }
+
+    .portfolio-btn:hover {
+      background: #ff1493;
+    }
+
+    #todo-app input[type="text"] {
+      width: 70%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 2px solid var(--accent);
+      border-radius: 10px;
+      outline: none;
+    }
+
+    #todo-app button {
+      padding: 10px 16px;
+      font-size: 1rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    #todo-list {
+      margin-top: 20px;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    #todo-list li {
+      background: #ffeef5;
+      padding: 12px 18px;
+      margin-bottom: 10px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #todo-list li button {
+      background: #ff6f91;
+      color: white;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      #todo-app input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      #todo-app button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Bhumi Kadam</h1>
+      <p>Creative Web Developer | Building beautiful things with code ✨</p>
+    </header>
+
+    <div class="card">
+      <h2>About Me</h2>
+      <p>
+        Hi! I'm Bhumi — a passionate developer who loves turning creative ideas into functional, visually stunning websites. I'm especially into front-end development, design aesthetics, and sharing my journey as a girl in tech!
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div>HTML5 & CSS3</div>
+        <div>JavaScript</div>
+        <div>React</div>
+        <div>Node.js</div>
+        <div>Python</div>
+        <div>Git & GitHub</div>
+        <div>UI/UX</div>
+        <div>Responsive Design</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Portfolio</h2>
+      <p>Check out my latest projects, apps and experiments here:</p>
+      <a class="portfolio-btn" href="https://your-portfolio-link.com" target="_blank">🌸 View My Work</a>
+    </div>
+
+    <div class="card" id="todo-app">
+      <h2>Try My Mini App 💖</h2>
+      <p>This is a cute little to-do list app I made!</p>
+      <input type="text" id="new-task" placeholder="Add a task..." />
+      <button onclick="addTask()">Add</button>
+      <ul id="todo-list"></ul>
+    </div>
+  </div>
+
+  <script>
+    function addTask() {
+      const input = document.getElementById('new-task');
+      const taskText = input.value.trim();
+      if (!taskText) {
+        alert('Please enter a task!');
+        return;
+      }
+
+      const li = document.createElement('li');
+      li.textContent = taskText;
+
+      const delBtn = document.createElement('button');
+      delBtn.textContent = 'Delete';
+      delBtn.onclick = () => li.remove();
+
+      li.appendChild(delBtn);
+      document.getElementById('todo-list').appendChild(li);
+      input.value = '';
+      input.focus();
+    }
+  </script>
+</body>
+</html>
